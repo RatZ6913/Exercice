@@ -4,9 +4,6 @@ require_once __DIR__ . './core/database/edit-imgProfilDB.php';
 require_once __DIR__ . './core/database/edit-profilDB.php';
 include_once __DIR__ . './public/common/head.php';
 
-echo "<pre>";
-var_dump($_FILES);
-echo "</pre>";
 
 ?>
 
@@ -23,7 +20,7 @@ echo "</pre>";
 	<section class="box-profil">
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
 			<img src="./public/images/imports/profil-0.jpg" id="img-profil">
-			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="file" name="imageToUpload">
 			<input type="submit" name="submit" value="Upload">
 		</form>
 
