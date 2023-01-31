@@ -15,7 +15,15 @@ include_once __DIR__ . './public/common/head.php';
         <h1>Modifier votre profil</h1>
     </div>
 
-    <div class="box-profil">
+    <section class="box-profil">
         <img src="./public/images/profil-0.jpg" alt="" id="img-profil">
-    </div>
+
+        <div>
+            <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                <label for=""></label>
+                <input type="text" name="">
+            </form>
+        </div>
+
+    </section>
 </body>

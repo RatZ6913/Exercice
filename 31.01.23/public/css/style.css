@@ -30,6 +30,10 @@ nav a {
   margin: 1rem;
 }
 
+#navProfil {
+  width: 80px;
+}
+
 h1 {
   text-align: center;
   color: #45161c;
@@ -42,9 +46,13 @@ form {
   justify-content: center;
   width: 50%;
   margin: auto;
-  background-color: brown;
+  background-color: rgb(177, 135, 58);
   color: white;
   box-sizing: 1px 2px 1px 2px grey;
+}
+
+#register {
+  background-color: rgb(41, 76, 109) !important;
 }
 
 form div {
@@ -77,11 +85,15 @@ input[type=submit]:hover {
 }
 
 .box-profil {
-  
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+  border: 1px solid black;
 }
 
 #img-profil {
-  width: 250px;
+  width: 150px;
 }
 
 

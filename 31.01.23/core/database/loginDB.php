@@ -1,4 +1,8 @@
 <?php
+if(!session_id()){
+  session_start();
+}
+
 require_once __DIR__ . './bdd.php';
 
 const ERROR_EMPTY_INPUT = "Champ vide";
@@ -14,6 +18,10 @@ $errors = [
 
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+  if(isset($_POST['register'])){
+    header('location: ./inscription.php');
+  }
 
   $input = filter_input_array(INPUT_POST, [
     'pseudo' => FILTER_SANITIZE_SPECIAL_CHARS,
@@ -51,6 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       $passwordCheck = $_POST['password'];
       $emailCheck = $_POST['email'];
 
+      $_SESSION['pseudo'] = $pseudoCheck;
+      $_SESSION['email'] = $emailCheck;
+
       $loginCheck->execute();
       $connection = $loginCheck->fetch();
 
@@ -59,13 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       } else {
         return $invalidUser = "Erreur de Pseudo / Mot de passe / Email ...";
       }
-
     } catch (Exception $e) {
       throw new Exception($e->getMessage());
     }
   }
 }
-
-
-
-

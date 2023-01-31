@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+
 require_once __DIR__ . './core/database/loginDB.php';
 include_once __DIR__ . './public/common/head.php';
 ?>
@@ -34,6 +37,7 @@ include_once __DIR__ . './public/common/head.php';
         <p class="errorsMsg"><?= $errors['email'] ?? ''; ?></p>
         <div>
             <input type="submit" name="submit" value="Se connecter">
+            <input type="submit" name="register" value="S'inscrire">
         </div>
         <?= $invalidUser ?? ''; ?>
     </form>

@@ -1,6 +1,7 @@
 <header>
   <nav>
     <div>
+      <img src="./public/images/profil-0.jpg" alt="" id="navProfil">
       <a href="./edit-profil.php">Modifier votre profil</a>
     </div>
     <ul>

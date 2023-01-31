@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if(empty($_SESSION['pseudo']) && empty($_SESSION['email'])){
+    header('location: ./connexion.php');
+    echo "Veuillez vous connecter";
+}
+
 require_once __DIR__ . './core/database/parameters/database.php';
 include_once __DIR__ . './public/common/head.php';
 

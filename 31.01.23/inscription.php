@@ -18,7 +18,7 @@ include_once __DIR__ . './public/common/head.php';
     <h1>Page d'inscription</h1>
   </div>
 
-  <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+  <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="register">
     <div>
       <label for="pseudo">Pseudo :</label>
       <input type="text" name="pseudo" id="pseudo" value="<?= $pseudo ?? ''; ?>" placeholder="Pseudo...">
@@ -42,6 +42,7 @@ include_once __DIR__ . './public/common/head.php';
     <p class="errorsMsg"><?= $errors['email'] ?? ''; ?></p>
     <div>
       <input type="submit" name="submit" value="S'inscrire">
+      <input type="submit" name="login" value="Se connecter">
     </div>
 
   </form>

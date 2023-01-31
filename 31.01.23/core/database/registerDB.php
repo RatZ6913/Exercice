@@ -13,7 +13,9 @@ $errors = [
 
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-
+  if (isset($_POST['login'])) {
+    header('location: ./connexion.php');
+  }
 
   $input = filter_input_array(INPUT_POST, [
     'pseudo' => FILTER_SANITIZE_SPECIAL_CHARS,
@@ -53,20 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $errors['email'] = "Invalid email ";
   }
 
-  if(empty(array_filter($errors, function ($e) {
+  if (empty(array_filter($errors, function ($e) {
     return $e !== '';
   }))) {
     try {
       $insertNewUser->execute();
       header('location: ./connexion.php');
     } catch (Exception $e) {
-      throw new Exception ($e->getMessage());
+      throw new Exception($e->getMessage());
     }
   }
 }
-
-
-
-
-
-
