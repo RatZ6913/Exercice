@@ -1,9 +1,11 @@
 <?php
+if(!session_id()){
+  session_start();
+}
 // require_once __DIR__ . './core/database/bdd.php';
 require_once __DIR__ . './core/database/edit-imgProfilDB.php';
 require_once __DIR__ . './core/database/edit-profilDB.php';
 include_once __DIR__ . './public/common/head.php';
-
 
 ?>
 
@@ -47,6 +49,5 @@ include_once __DIR__ . './public/common/head.php';
 				</div>
 			</form>
 		</div>
-
 	</section>
 </body>

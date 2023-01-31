@@ -1,15 +1,18 @@
 <?php
-
 require_once __DIR__ . './bdd.php';
 
 $target_dir = __DIR__ . ".\..\..\public\images\uploads\ ";
 $target_dir = trim($target_dir);
-$target_file = $target_dir . basename($_FILES['imageToUpload']['name']);
-$uploadCheck = "";
-$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-$check = getimagesize($_FILES['imageToUpload']["tmp_name"]);
 
-if (isset($_POST['submit'])) {
+if (isset($_FILES['imageToUpload'])) {
+  $target_file = $target_dir . basename($_FILES['imageToUpload']['name']);
+  $uploadCheck = "";
+  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+}
+
+if (isset($_POST['submit']) && isset($_FILES['file'])) {
+
+  $check = getimagesize($_FILES['imageToUpload']["tmp_name"]);
 
   if ($check !== false) {
     echo "Fichier est une image - " . $check['mime'] . ".";
