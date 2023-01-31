@@ -1,8 +1,13 @@
 <?php
-require_once __DIR__ . './core/database/parameters/database.php';
+// require_once __DIR__ . './core/database/bdd.php';
 require_once __DIR__ . './core/database/edit-imgProfilDB.php';
 require_once __DIR__ . './core/database/edit-profilDB.php';
 include_once __DIR__ . './public/common/head.php';
+
+echo "<pre>";
+var_dump($_FILES);
+echo "</pre>";
+
 ?>
 
 
@@ -19,7 +24,7 @@ include_once __DIR__ . './public/common/head.php';
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
 			<img src="./public/images/imports/profil-0.jpg" id="img-profil">
 			<input type="file" name="fileToUpload" id="fileToUpload">
-			<input type="submit" name="" value="Upload">
+			<input type="submit" name="submit" value="Upload">
 		</form>
 
 		<div class="box-editProfil">

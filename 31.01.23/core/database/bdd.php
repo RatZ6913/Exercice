@@ -16,5 +16,5 @@ $loginCheck->bindParam('email', $emailCheck);
 
 
 
-
-
+$uploadImageProfil = $pdo->prepare("INSERT INTO images (file_name, uploaded_on) VALUES (':fileName', NOW())");
+$uploadImageProfil->bindParam('fileName', $fileName);
