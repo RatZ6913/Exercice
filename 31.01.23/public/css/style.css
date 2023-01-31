@@ -90,7 +90,7 @@ input[type=submit]:hover {
   align-items: center;
   width: 50%;
   margin: auto;
-  box-shadow: 1px 2px 3px brown;
+  box-shadow: 1px 2px 3px grey;
   background-color: wheat;
 }
 
@@ -105,4 +105,15 @@ input[type=submit]:hover {
   background-color: wheat;
   margin: 1rem auto;
 }
+
+.pseudo {
+  color: #286e9c;
+}
+
+.email {
+  color: #125e12;
+}
+
+
+
 

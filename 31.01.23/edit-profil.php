@@ -33,6 +33,10 @@ include_once __DIR__ . './public/common/head.php';
 					<label for="email">Email :</label>
 					<input type="text" name="email" id="email" value="" disabled placeholder="Email...">
 				</div>
+				<div>
+					<label for="card">Numéro CB :</label>
+					<input type="text" name="card" id="card" value="" disabled placeholder="VISA...">
+				</div>
 			</form>
 		</div>
 
