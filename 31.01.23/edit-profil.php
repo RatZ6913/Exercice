@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . './core/database/parameters/database.php';
+require_once __DIR__ . './core/database/edit-imgProfilDB.php';
+require_once __DIR__ . './core/database/edit-profilDB.php';
 include_once __DIR__ . './public/common/head.php';
 ?>
-
-
 
 
 <title><?= $title  = 'Page de connexion'; ?></title>
@@ -16,8 +16,11 @@ include_once __DIR__ . './public/common/head.php';
 	</div>
 
 	<section class="box-profil">
-		<img src="./public/images/profil-0.jpg" alt="" id="img-profil">
-		<input type="submit" name="" value="Upload">
+		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
+			<img src="./public/images/profil-0.jpg" id="img-profil">
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="submit" name="" value="Upload">
+		</form>
 
 		<div class="box-editProfil">
 			<form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
@@ -36,6 +39,9 @@ include_once __DIR__ . './public/common/head.php';
 				<div>
 					<label for="card">Numéro CB :</label>
 					<input type="text" name="card" id="card" value="" disabled placeholder="VISA...">
+				</div>
+				<div>
+					<input type="submit" value="Modifier">
 				</div>
 			</form>
 		</div>

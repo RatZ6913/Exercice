@@ -114,6 +114,18 @@ input[type=submit]:hover {
   color: #125e12;
 }
 
+#profil-image {
+  display: flex;
+  align-items: center;
+  background-color: wheat;
+  color: #5e4321;
+}
+
+#profil-image input {
+  background-color: white;
+  margin: 1rem auto;
+  cursor: pointer;
+}
 
 
 
