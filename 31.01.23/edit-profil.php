@@ -17,7 +17,7 @@ include_once __DIR__ . './public/common/head.php';
 
 	<section class="box-profil">
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
-			<img src="./public/images/profil-0.jpg" id="img-profil">
+			<img src="./public/images/imports/profil-0.jpg" id="img-profil">
 			<input type="file" name="fileToUpload" id="fileToUpload">
 			<input type="submit" name="" value="Upload">
 		</form>
