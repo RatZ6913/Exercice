@@ -7,17 +7,13 @@ require_once __DIR__ . './core/database/bdd.php';
 require_once __DIR__ . './core/database/registerDB.php';
 include_once __DIR__ . './public/common/head.php';
 
-
 if (isset($_SESSION['pseudo']) && isset($_SESSION['email']) && isset($_SESSION['idUser'])) {
   echo "Vous êtes déjà inscrit !";
   echo "<a href='./index.php'>Page d'accueil</a>";
   die();
 }
 
-var_dump($_SESSION);
 ?>
-
-
 
 
 <title><?= $title  = 'Page d\'inscription'; ?></title>
@@ -57,5 +53,4 @@ var_dump($_SESSION);
     </div>
 
   </form>
-
 </body>

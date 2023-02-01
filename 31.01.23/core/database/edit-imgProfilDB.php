@@ -69,6 +69,7 @@ if (isset($_POST['submit'])) {
         $dateUpload =  date('Y-m-d H:m:s');
         $idUsers = $_SESSION['idUser'];
         $insertImageBdd->execute();
+        header('location: ./index.php');
 
       } catch (Exception $e) {
         throw new Exception("Erreur :" . $e);
@@ -78,4 +79,6 @@ if (isset($_POST['submit'])) {
     }
   }
 }
+
+
 

@@ -15,10 +15,8 @@ $loginCheck->bindParam('password', $passwordCheck);
 $loginCheck->bindParam('email', $emailCheck);
 
 
-
 $uploadImageProfil = $pdo->prepare("INSERT INTO images (file_name, uploaded_on) VALUES (':fileName', NOW())");
 $uploadImageProfil->bindParam('fileName', $fileName);
-
 
 
 $insertImageBdd = $pdo->prepare("INSERT INTO images (file_name, uploaded_on, idUsers)
@@ -31,6 +29,11 @@ $getImage = $pdo->prepare("SELECT * FROM images WHERE idUsers = :idUsers ORDER B
 $getImage->bindParam('idUsers', $idUsers, PDO::PARAM_INT);
 
 
+$updateProfil = $pdo->prepare("UPDATE users SET pseudo = :updatePseudo, password = :updatePass,
+email = :updateEmail WHERE id = :idUsers");
+$updateProfil->bindParam('updatePseudo', $updatePseudo);
+$updateProfil->bindParam('updatePass', $updatePass);
+$updateProfil->bindParam('updateEmail', $updateEmail);
+$updateProfil->bindParam('idUsers', $idUsers);
 
-// echo "test";
 

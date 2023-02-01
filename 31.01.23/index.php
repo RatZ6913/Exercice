@@ -19,8 +19,6 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
   $_SESSION['imageProfil'] = $showImage['file_name'];
 }
 
-
-
 ?>
 
 <title><?= $title  = 'Page de connexion'; ?></title>
