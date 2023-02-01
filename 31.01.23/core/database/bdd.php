@@ -18,3 +18,17 @@ $loginCheck->bindParam('email', $emailCheck);
 
 $uploadImageProfil = $pdo->prepare("INSERT INTO images (file_name, uploaded_on) VALUES (':fileName', NOW())");
 $uploadImageProfil->bindParam('fileName', $fileName);
+
+
+
+$insertImageBdd = $pdo->prepare("INSERT INTO images (file_name, uploaded_on, idUsers)
+VALUES (:fileName, :date, :idUsers)");
+$insertImageBdd->bindParam('fileName', $fileName);
+$insertImageBdd->bindParam('date', $dateUpload);
+$insertImageBdd->bindParam('idUsers', $idUsers);
+
+$getImage = $pdo->prepare("SELECT * FROM images WHERE idUsers = :idUsers ORDER BY uploaded_on ASC");
+$getImage->bindParam('idUsers', $idUsers);
+// $showImageProfil = $getImage->fetch();
+
+

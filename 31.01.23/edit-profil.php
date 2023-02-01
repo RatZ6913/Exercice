@@ -20,9 +20,11 @@ include_once __DIR__ . './public/common/head.php';
 
 	<section class="box-profil">
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
-			<img src="./public/images/uploads/<?= $_FILES['imageToUpload']['name'] ?? ''; ?>" id="img-profil">
+
+			<?php empty($_SESSION['imageProfil']) ? '<img src=\'./public/images/imports/profil-0.jpg\'>' : '<img src=\'./public/images/uploads/'. $_FILES['imageToUpload']['name'] . '>' ?>
+
 			<p id="nameImage"><?= $_FILES['imageToUpload']['name'] ?? ''; ?></p>
-			<p class="errorsMsg" style="text-align:center"><?= $status['status'] ?? ''; ?></p>
+			<p style="text-align:center"><?= $status['status'] ?? ''; echo $status['exist'] ?? '' ?>;</p>
 			<input type="file" name="imageToUpload">
 			<input type="submit" name="submit" value="Upload">
 		</form>
@@ -52,3 +54,5 @@ include_once __DIR__ . './public/common/head.php';
 		</div>
 	</section>
 </body>
+
+<!-- // <img src="./public/images/uploads/< ?= $_FILES['imageToUpload']['name'] ?? ''; ?>" id="img-profil"> -->

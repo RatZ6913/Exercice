@@ -1,16 +1,18 @@
 <?php
 session_start();
 
-if (empty($_SESSION['pseudo']) && empty($_SESSION['email'])) {
+if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['id'])) {
   header('location: ./connexion.php');
   echo "Veuillez vous connecter";
 } else {
   $pseudoSess = $_SESSION['pseudo'];
   $emailSess = $_SESSION['email'];
+  $idUsers = $_SESSION['idUser'] ?? '';
 }
 
 require_once __DIR__ . './core/database/parameters/database.php';
 include_once __DIR__ . './public/common/head.php';
+
 
 
 ?>
@@ -31,9 +33,5 @@ include_once __DIR__ . './public/common/head.php';
     <h3>Bravo <span class="pseudo"><?= $pseudoSess; ?></span> ! Vous savez utilisez un formulaire.</h3>
     <h3>Votre email est : <span class="email"><?= $emailSess; ?></span> !</h3>
   </section>
-
-  <!-- <div>
-        <img src="./public/images/profil-0.jpg" alt="">
-    </div> -->
 
 </body>

@@ -1,8 +1,14 @@
 <?php
+if (!session_id()) {
+  session_start();
+}
+
 require_once __DIR__ . './bdd.php';
 
 $target_dir = __DIR__ . "..\..\..\public\images\uploads\ ";
 $target_dir = trim($target_dir);
+
+$_FILES['target_dir'] = $target_dir;
 
 if (isset($_FILES['imageToUpload'])) {
   $target_file = $target_dir . basename($_FILES['imageToUpload']['name']);
@@ -14,6 +20,7 @@ if (isset($_POST['submit'])) {
 
   $status = [
     'status' => "",
+    'exist' => ""
   ];
 
   if (!empty($_FILES['file'])) {
@@ -24,11 +31,6 @@ if (isset($_POST['submit'])) {
       $uploadCheck = 1;
     } else {
       $status['status'] = "Fichier invalide !";
-      $uploadCheck = 0;
-    }
-
-    if (file_exists($target_file)) {
-      $status['status'] = "Sorry, file already exists. <br>";
       $uploadCheck = 0;
     }
 
@@ -47,6 +49,11 @@ if (isset($_POST['submit'])) {
     }
   }
 
+  if (file_exists($target_file)) {
+    $status['exist'] = "Sorry, file already exists. <br>";
+    $uploadCheck = 0;
+  }
+
   if ($uploadCheck == 0) {
     $status['status'] = "Sorry, your file was not uploaded.";
   } else {
@@ -57,6 +64,16 @@ if (isset($_POST['submit'])) {
       $status['status'] = "The file " . htmlspecialchars(basename(
         $_FILES["imageToUpload"]["name"]
       )) . " has been uploaded.";
+
+      try {
+        $fileName = $_FILES['imageToUpload']['name'];
+        $dateUpload =  date('Y-m-d');
+        $idUsers = $_SESSION['idUser'];
+        $insertImageBdd->execute();
+
+      } catch (Exception $e) {
+        throw new Exception("Erreur :" . $e);
+      }
     } else {
       $status['status'] = "Sorry, there was an error uploading your file.";
     }
