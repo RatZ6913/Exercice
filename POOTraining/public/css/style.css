@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(../ressources/img/background/island.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  text-align: center;
+  color: #3f3e3e;
+  text-decoration: underline;
+  background-color: #ffffffc5;
+  margin: 2rem auto;
+}
+
+h2 {
+  text-decoration: white underline;
+  text-align: center;
+  margin: 1rem auto;
+  width: 100%;
+  color: #2f658f;
+}
+
+h3 {
+  text-align: center;
+}
+
+ #nameUser {
+  color: #a52a2a;
+  text-transform: capitalize;
+ }
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+  background-color: rgba(220, 220, 220, 0.87);
+  box-shadow: 1px 5px 5px 5px #4e4d4d;
+}
+
+#boxImg img {
+  display: flex;
+  margin: auto;
+  animation: effectHit 1.5s infinite;
+}
+
+@keyframes effectHit {
+  0% {transform: rotate(-25deg) translate(-25%) }
+  25% {transform: rotate(20deg)}
+  50% {transform: rotate(-25deg) translate(-5%)}
+  75% {transform: rotate(20deg)}
+  100% {transform: rotate(-25deg) translate(-25%)}
+}
+
+/* / MID PAGE  */
+
+#mid-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem auto;
+  width: 40%;
+  box-shadow: 1px 5px 5px 5px #4e4d4d;
+  background-color: #ffffffc5;
+}
+
+
+
+
