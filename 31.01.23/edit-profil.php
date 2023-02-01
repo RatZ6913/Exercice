@@ -1,6 +1,6 @@
 <?php
-if(!session_id()){
-  session_start();
+if (!session_id()) {
+	session_start();
 }
 
 require_once __DIR__ . './core/database/edit-imgProfilDB.php';
@@ -20,8 +20,9 @@ include_once __DIR__ . './public/common/head.php';
 
 	<section class="box-profil">
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
-			<img src="./public/images/uploads/<?= $_FILES['imageToUpload']['name']; ?>"  id="img-profil">
-			<p id="nameImage"><?= $_FILES['imageToUpload']['name']; ?></p>
+			<img src="./public/images/uploads/<?= $_FILES['imageToUpload']['name'] ?? ''; ?>" id="img-profil">
+			<p id="nameImage"><?= $_FILES['imageToUpload']['name'] ?? ''; ?></p>
+			<p class="errorsMsg" style="text-align:center"><?= $status['status'] ?? ''; ?></p>
 			<input type="file" name="imageToUpload">
 			<input type="submit" name="submit" value="Upload">
 		</form>

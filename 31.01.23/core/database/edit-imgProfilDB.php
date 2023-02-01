@@ -12,24 +12,28 @@ if (isset($_FILES['imageToUpload'])) {
 
 if (isset($_POST['submit'])) {
 
+  $status = [
+    'status' => "",
+  ];
+
   if (!empty($_FILES['file'])) {
     $check = getimagesize($_FILES['imageToUpload']["tmp_name"]);
 
     if ($check !== false) {
-      echo "Fichier est une image - " . $check['mime'] . ".";
+      $status['status'] = "Fichier est une image - " . $check['mime'] . ".";
       $uploadCheck = 1;
     } else {
-      echo "Fichier invalide !";
+      $status['status'] = "Fichier invalide !";
       $uploadCheck = 0;
     }
 
     if (file_exists($target_file)) {
-      echo "Sorry, file already exists. <br>";
+      $status['status'] = "Sorry, file already exists. <br>";
       $uploadCheck = 0;
     }
 
     if ($_FILES["imageToUpload"]["size"] > 5000000) {
-      echo "Sorry, your file is too large.";
+      $status['status'] = "Sorry, your file is too large.";
       $uploadCheck = 0;
     }
 
@@ -38,23 +42,23 @@ if (isset($_POST['submit'])) {
       $imageFileType != "jpeg"
       && $imageFileType != "gif"
     ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+      $status['status'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
       $uploadCheck = 0;
     }
   }
 
   if ($uploadCheck == 0) {
-    echo "Sorry, your file was not uploaded.";
+    $status['status'] = "Sorry, your file was not uploaded.";
   } else {
     if (move_uploaded_file(
       $_FILES["imageToUpload"]["tmp_name"],
       $target_file
     )) {
-      echo "The file " . htmlspecialchars(basename(
+      $status['status'] = "The file " . htmlspecialchars(basename(
         $_FILES["imageToUpload"]["name"]
       )) . " has been uploaded.";
     } else {
-      echo "Sorry, there was an error uploading your file.";
+      $status['status'] = "Sorry, there was an error uploading your file.";
     }
   }
 }
