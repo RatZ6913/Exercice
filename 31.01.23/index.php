@@ -21,12 +21,7 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
 
 
 
-
-
 ?>
-
-
-
 
 <title><?= $title  = 'Page de connexion'; ?></title>
 

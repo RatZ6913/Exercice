@@ -19,8 +19,7 @@ if (isset($_FILES['imageToUpload'])) {
 if (isset($_POST['submit'])) {
 
   $status = [
-    'status' => "",
-    'exist' => ""
+    'status' => ""
   ];
 
   if (!empty($_FILES['file'])) {
@@ -67,7 +66,7 @@ if (isset($_POST['submit'])) {
 
       try {
         $fileName = $_FILES['imageToUpload']['name'];
-        $dateUpload =  date('Y-m-d');
+        $dateUpload =  date('Y-m-d H:m:s');
         $idUsers = $_SESSION['idUser'];
         $insertImageBdd->execute();
 
@@ -79,3 +78,4 @@ if (isset($_POST['submit'])) {
     }
   }
 }
+

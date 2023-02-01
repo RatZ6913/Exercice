@@ -2,8 +2,11 @@
 if(!session_id()){
     session_start();
   }
+  
 if(isset($_SESSION['pseudo']) && isset($_SESSION['email'])){
-    header('location: ./index.php');
+    echo "Vous êtes déjà connecté !";
+    echo "<a href='./index.php'>Page d'accueil</a>";
+    die();
 }
 
 require_once __DIR__ . './core/database/loginDB.php';

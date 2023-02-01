@@ -21,7 +21,7 @@ include_once __DIR__ . './public/common/head.php';
 	<section class="box-profil">
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
 
-			<?php empty($_SESSION['imageProfil']) ? '<img src=\'./public/images/imports/profil-0.jpg\'>' : '<img src=\'./public/images/uploads/'. $_FILES['imageToUpload']['name'] . '>' ?>
+			<img src="./public/images/<?= "uploads/". $_SESSION['imageProfil'] ?? "imports/profil.0.jpg"; ?>" alt="" id="img-profil">
 
 			<p id="nameImage"><?= $_FILES['imageToUpload']['name'] ?? ''; ?></p>
 			<p style="text-align:center"><?= $status['status'] ?? ''; echo $status['exist'] ?? '' ?>;</p>
@@ -56,3 +56,7 @@ include_once __DIR__ . './public/common/head.php';
 </body>
 
 <!-- // <img src="./public/images/uploads/< ?= $_FILES['imageToUpload']['name'] ?? ''; ?>" id="img-profil"> -->
+
+
+
+<!-- < ?php !empty($_SESSION['imageProfil']) ? '<img src=\'./public/images/imports/profil-0.jpg\'>' : '<img src=\'./public/images/uploads/'. $_FILES['imageToUpload']['name'] . '>' ?> -->

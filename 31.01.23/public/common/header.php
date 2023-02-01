@@ -2,15 +2,6 @@
 
 require_once __DIR__ . '../../../core/database/bdd.php';
 
-// $getImage->execute();
-// $showImageProfil = $getImage->fetch();
-
-// $_SESSION['imageProfil'] = $showImageProfil['file_name'];
-
-// echo "<pre>";
-// var_dump($_SESSION);
-// echo "</pre>";
-
 ?>
 <header>
   <nav>

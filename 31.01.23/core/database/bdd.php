@@ -27,7 +27,7 @@ $insertImageBdd->bindParam('fileName', $fileName);
 $insertImageBdd->bindParam('date', $dateUpload);
 $insertImageBdd->bindParam('idUsers', $idUsers);
 
-$getImage = $pdo->prepare("SELECT * FROM images WHERE idUsers = :idUsers ORDER BY uploaded_on ASC");
+$getImage = $pdo->prepare("SELECT * FROM images WHERE idUsers = :idUsers ORDER BY id DESC");
 $getImage->bindParam('idUsers', $idUsers, PDO::PARAM_INT);
 
 
