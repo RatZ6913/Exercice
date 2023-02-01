@@ -31,7 +31,8 @@ nav a {
 }
 
 #navProfil {
-  width: 80px;
+  width: 100px;
+  min-height: 80px;
 }
 
 h1 {

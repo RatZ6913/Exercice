@@ -2,13 +2,12 @@
 if(!session_id()){
   session_start();
 }
-// require_once __DIR__ . './core/database/bdd.php';
+
 require_once __DIR__ . './core/database/edit-imgProfilDB.php';
 require_once __DIR__ . './core/database/edit-profilDB.php';
 include_once __DIR__ . './public/common/head.php';
 
 ?>
-
 
 <title><?= $title  = 'Page de connexion'; ?></title>
 
@@ -21,7 +20,8 @@ include_once __DIR__ . './public/common/head.php';
 
 	<section class="box-profil">
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
-			<img src="./public/images/imports/profil-0.jpg" id="img-profil">
+			<img src="./public/images/uploads/<?= $_FILES['imageToUpload']['name']; ?>"  id="img-profil">
+			<p id="nameImage"><?= $_FILES['imageToUpload']['name']; ?></p>
 			<input type="file" name="imageToUpload">
 			<input type="submit" name="submit" value="Upload">
 		</form>

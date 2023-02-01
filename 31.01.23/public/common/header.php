@@ -1,7 +1,7 @@
 <header>
   <nav>
     <div>
-      <img src="./public/images/imports/profil-0.jpg" alt="" id="navProfil">
+      <img src="./public/images/uploads/<?= $_FILES['imageToUpload']['name']; ?>" alt="" id="navProfil">
       <a href="./edit-profil.php">Modifier votre profil</a>
     </div>
     <ul>
