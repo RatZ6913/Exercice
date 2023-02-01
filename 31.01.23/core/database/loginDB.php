@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
       $loginCheck->execute();
       $connection = $loginCheck->fetch();
-      $_SESSION['idUser'] = $connection['id'];
+      $idUsers = $_SESSION['idUser'] = $connection['id'];
 
       if ($connection == true) {
         header('location: ./index.php');

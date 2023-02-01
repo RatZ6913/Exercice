@@ -28,7 +28,9 @@ $insertImageBdd->bindParam('date', $dateUpload);
 $insertImageBdd->bindParam('idUsers', $idUsers);
 
 $getImage = $pdo->prepare("SELECT * FROM images WHERE idUsers = :idUsers ORDER BY uploaded_on ASC");
-$getImage->bindParam('idUsers', $idUsers);
-// $showImageProfil = $getImage->fetch();
+$getImage->bindParam('idUsers', $idUsers, PDO::PARAM_INT);
 
+
+
+// echo "test";
 

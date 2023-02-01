@@ -8,11 +8,6 @@ include_once __DIR__ . './public/common/head.php';
 
 
 
-
-echo "<pre>";
-var_dump($_SESSION);
-echo "</pre>";
-
 ?>
 
 

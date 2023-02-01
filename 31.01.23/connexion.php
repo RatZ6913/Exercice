@@ -6,14 +6,9 @@ if(isset($_SESSION['pseudo']) && isset($_SESSION['email'])){
     header('location: ./index.php');
 }
 
-
-
 require_once __DIR__ . './core/database/loginDB.php';
 include_once __DIR__ . './public/common/head.php';
 ?>
-
-
-
 
 <title><?= $title  = 'Page de connexion'; ?></title>
 

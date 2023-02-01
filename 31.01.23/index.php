@@ -1,17 +1,25 @@
 <?php
 session_start();
 
-if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['id'])) {
+require_once __DIR__ . './core/database/parameters/database.php';
+require_once __DIR__ . './core/database/bdd.php';
+include_once __DIR__ . './public/common/head.php';
+
+if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['idUser'])) {
   header('location: ./connexion.php');
   echo "Veuillez vous connecter";
 } else {
   $pseudoSess = $_SESSION['pseudo'];
   $emailSess = $_SESSION['email'];
-  $idUsers = $_SESSION['idUser'] ?? '';
+  $idUsers = $_SESSION['idUser'];
+
+  $getImage->execute();
+  $showImage = $getImage->fetch();
+
+  $_SESSION['imageProfil'] = $showImage['file_name'];
 }
 
-require_once __DIR__ . './core/database/parameters/database.php';
-include_once __DIR__ . './public/common/head.php';
+
 
 
 
