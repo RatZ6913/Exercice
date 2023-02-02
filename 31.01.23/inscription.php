@@ -34,12 +34,12 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['email']) && isset($_SESSION['
 
     <div>
       <label for="password">Mot de passe :</label>
-      <input type="text" name="password" id="password" value="<?= $password ?? ''; ?>" placeholder="Mot de passe...">
+      <input type="text" name="password" id="password" placeholder="Mot de passe...">
     </div>
     <p class="errorsMsg"><?= $errors['password'] ?? ''; ?></p>
     <div>
       <label for="confirmPass">Confirmez votre mot de passe :</label>
-      <input type="text" name="confirmPass" id="confirmPass" value="<?= $confirmPass ?? ''; ?>" placeholder="Confirmez mot de passe...">
+      <input type="text" name="confirmPass" id="confirmPass" placeholder="Confirmez mot de passe...">
     </div>
     <p class="errorsMsg"><?= $errors['confirmPass'] ?? ''; ?></p>
     <div>
@@ -47,6 +47,7 @@ if (isset($_SESSION['pseudo']) && isset($_SESSION['email']) && isset($_SESSION['
       <input type="text" name="email" id="email" value="<?= $email ?? ''; ?>" placeholder="Email...">
     </div>
     <p class="errorsMsg"><?= $errors['email'] ?? ''; ?></p>
+    <p class="errorsMsg"><?= $errors['failed'] ?? ''; ?></p>
     <div>
       <input type="submit" name="submit" value="S'inscrire">
       <input type="submit" name="login" value="Se connecter">

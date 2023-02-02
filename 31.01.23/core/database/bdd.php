@@ -8,9 +8,13 @@ $insertNewUser->bindParam('password', $password);
 $insertNewUser->bindParam('email', $email);
 
 
+$checkIfUserExist = $pdo->prepare("SELECT pseudo, email FROM users WHERE pseudo = :checkPseudo OR email = :checkEmail");
+$checkIfUserExist->bindParam('checkPseudo', $checkPseudo);
+$checkIfUserExist->bindParam('checkEmail', $checkEmail);
+
+
 $loginCheck = $pdo->prepare("SELECT id, pseudo, password, email FROM users WHERE pseudo = :pseudo AND email = :email");
 $loginCheck->bindParam('pseudo', $pseudoCheck);
-// $loginCheck->bindParam('password', $passwordCheck);
 $loginCheck->bindParam('email', $emailCheck);
 
 
@@ -23,6 +27,7 @@ VALUES (:fileName, :date, :idUsers)");
 $insertImageBdd->bindParam('fileName', $fileName);
 $insertImageBdd->bindParam('date', $dateUpload);
 $insertImageBdd->bindParam('idUsers', $idUsers);
+
 
 $getImage = $pdo->prepare("SELECT * FROM images WHERE idUsers = :idUsers ORDER BY id DESC");
 $getImage->bindParam('idUsers', $idUsers, PDO::PARAM_INT);

@@ -9,8 +9,6 @@ if (!empty($_SESSION['pseudo']) && !empty($_SESSION['email']) && !empty($_SESSIO
 	die();
 }
 
-var_dump($_SESSION);
-
 require_once __DIR__ . './core/database/loginDB.php';
 include_once __DIR__ . './public/common/head.php';
 ?>

@@ -8,9 +8,9 @@ $errors = [
   'pseudo' => '',
   'password' => '',
   'confirmPass' => '',
-  'email' => ''
+  'email' => '',
+  'failed' => ''
 ];
-
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
   if (isset($_POST['login'])) {
@@ -59,10 +59,23 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     return $e !== '';
   }))) {
     try {
-
       $password = password_hash($password, PASSWORD_BCRYPT);
-      $insertNewUser->execute();
-      header('location: ./connexion.php');
+
+      $checkPseudo = $_POST['pseudo'];
+      $checkEmail = $_POST['email'];
+
+      $checkIfUserExist->execute();
+      $startCheck = $checkIfUserExist->fetch();
+
+      if (
+        !empty($startCheck['email']) == $checkEmail
+        && !empty($startCheck['pseudo'] == $checkPseudo)
+      ) {
+        $errors['failed'] = "Le pseudo ou Email existe déjà !";
+      } else {
+        $insertNewUser->execute();
+        header('location: ./connexion.php');
+      }
     } catch (Exception $e) {
       throw new Exception($e->getMessage());
     }
