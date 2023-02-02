@@ -16,7 +16,7 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
   $getImage->execute();
   $showImage = $getImage->fetch();
 
-  $_SESSION['imageProfil'] = $showImage['file_name'];
+  $_SESSION['imageProfil'] = $showImage['file_name'] ?? '';
 }
 
 ?>

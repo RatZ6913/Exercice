@@ -59,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     return $e !== '';
   }))) {
     try {
+
+      $password = password_hash($password, PASSWORD_BCRYPT);
       $insertNewUser->execute();
       header('location: ./connexion.php');
     } catch (Exception $e) {

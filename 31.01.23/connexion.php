@@ -3,11 +3,11 @@ if (!session_id()) {
 	session_start();
 }
 
-if (isset($_SESSION['pseudo']) && isset($_SESSION['email'])) {
-	echo "Vous êtes déjà connecté !";
-	echo "<a href='./index.php'>Page d'accueil</a>";
-	die();
-}
+// if (isset($_SESSION['pseudo']) && isset($_SESSION['email'])) {
+	// echo "Vous êtes déjà connecté !";
+	// echo "<a href='./index.php'>Page d'accueil</a>";
+	// die();
+// }
 
 require_once __DIR__ . './core/database/loginDB.php';
 include_once __DIR__ . './public/common/head.php';
