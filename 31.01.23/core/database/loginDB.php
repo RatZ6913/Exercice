@@ -54,15 +54,19 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     return $e !== '';
   }))) {
     try {
-      $_SESSION['pseudo']  = $pseudoCheck = $_POST['pseudo'];
+      // $_SESSION['pseudo']  = $pseudoCheck = $_POST['pseudo'];
       $passwordCheck = $_POST['password'];
-      $_SESSION['email'] = $emailCheck = $_POST['email'];
+      // $_SESSION['email'] = $emailCheck = $_POST['email'];
       $loginCheck->execute();
       $connection = $loginCheck->fetch();
-      $idUsers = $_SESSION['idUser'] = $connection['id'] ?? '';
+      // $idUsers = $_SESSION['idUser'] = $connection['id'] ?? '';
 
       if ($connection == true) {
-        if(password_verify($passwordCheck, $connection['password'])){
+        if (password_verify($passwordCheck, $connection['password'])) {
+          $_SESSION['pseudo']  = $pseudoCheck = $_POST['pseudo'];
+          $_SESSION['email'] = $emailCheck = $_POST['email'];
+          $idUsers = $_SESSION['idUser'] = $connection['id'] ?? '';
+
           header('location: ./index.php');
         } else {
           return $invalidUser = "Erreur de Pseudo / Mot de passe / Email ...";

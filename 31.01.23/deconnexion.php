@@ -8,11 +8,10 @@ require_once __DIR__ . './core/database/bdd.php';
 include_once __DIR__ . './public/common/head.php';
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
-	session_unset();
 	session_destroy();
+	header('location: ./index.php');
 }
 
-var_dump($_SESSION);
 ?>
 
 <title><?= $title  = 'Page de connexion'; ?></title>

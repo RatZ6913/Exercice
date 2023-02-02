@@ -10,7 +10,6 @@ include_once __DIR__ . './public/common/head.php';
 if (!empty($_COOKIE['Card'])) {
 	$cardVisa = $_COOKIE['Card'];
 }
-
 ?>
 
 <title><?= $title  = 'Page de connexion'; ?></title>

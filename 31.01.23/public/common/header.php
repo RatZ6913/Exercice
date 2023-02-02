@@ -6,7 +6,6 @@ require_once __DIR__ . '../../../core/database/bdd.php';
 <header>
   <nav>
     <div>
-
       <?php
       if (empty($_SESSION['imageProfil'])) {
       ?>
