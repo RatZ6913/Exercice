@@ -25,11 +25,11 @@ if (!empty($_COOKIE['Card'])) {
 	<section class="box-profil">
 		<form action="./edit-profil.php" method="POST" enctype="multipart/form-data" id="profil-image">
 
-			<img src="./public/images/<?= "uploads/" . $_SESSION['imageProfil'] ?? "imports/profil.0.jpg"; ?>" alt="" id="img-profil">
+			<img src="./public/images/<?= !empty($_SESSION['imageProfil']) ? "uploads/" . $_SESSION['imageProfil'] : "imports/profil-0.jpg"; ?>" alt="" id="img-profil">
 
 			<p id="nameImage"><?= $_FILES['imageToUpload']['name'] ?? ''; ?></p>
-			<p style="text-align:center"><?= $status['status'] ?? '';
-																		echo $status['exist'] ?? '' ?>;</p>
+			<p style="text-align:center">
+			<?php echo $status['status'] ?? ''; echo $status['exist'] ?? '' ?>;</p>
 			<input type="file" name="imageToUpload">
 			<input type="submit" name="submit" value="Upload">
 		</form>
@@ -38,7 +38,7 @@ if (!empty($_COOKIE['Card'])) {
 			<form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 				<div>
 					<label for="pseudo">Pseudo : </label>
-					<input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>" placeholder="Pseudo...">
+					<input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo'] ?? ''; ?>" placeholder="Pseudo...">
 				</div>
 				<p class="errorsMsg"><?= $errors['pseudo'] ?? ''; ?></p>
 				<div>
@@ -48,7 +48,7 @@ if (!empty($_COOKIE['Card'])) {
 				<p class="errorsMsg"><?= $errors['password'] ?? ''; ?></p>
 				<div>
 					<label for="email">Email :</label>
-					<input type="text" name="email" id="email" value="<?= $_SESSION['email']; ?>" placeholder="Email...">
+					<input type="text" name="email" id="email" value="<?= $_SESSION['email'] ?? ''; ?>" placeholder="Email...">
 				</div>
 				<p class="errorsMsg"><?= $errors['email'] ?? ''; ?></p>
 				<div>
