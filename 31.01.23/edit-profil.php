@@ -28,7 +28,9 @@ if (!empty($_COOKIE['Card'])) {
 
 			<p id="nameImage"><?= $_FILES['imageToUpload']['name'] ?? ''; ?></p>
 			<p style="text-align:center">
-			<?php echo $status['status'] ?? ''; echo $status['exist'] ?? '' ?>;</p>
+				<?php echo $status['status'] ?? '';
+				echo $status['exist'] ?? '' ?>;
+			</p>
 			<input type="file" name="imageToUpload">
 			<input type="submit" name="submit" value="Upload">
 		</form>
