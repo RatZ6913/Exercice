@@ -19,6 +19,8 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
   $_SESSION['imageProfil'] = $showImage['file_name'] ?? '';
 }
 
+var_dump($_SESSION);
+
 ?>
 
 <title><?= $title  = 'Page de connexion'; ?></title>
@@ -35,19 +37,16 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
     <h3>Votre email est : <span class="email"><?= $emailSess; ?></span> !</h3>
   </section>
 
-
   <section id="box-todo">
     <div id="content-todo">
       <h4>Listes de Tâches</h4>
     </div>
     <div id="tasks">
-      <div>
+      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="form-task">
         <input type="text" name="task" id="task">
-      </div>
-      <div id="btn-tasks">
-        <input type="submit" name="add-tasks" value="Ajouter">
-        <input type="submit" name="edit-tasks" value="Modifier">
-      </div>
+        <input type="submit" name="add-tasks" value="Ajouter" class="btn-task">
+        <!-- <input type="submit" name="edit-tasks" value="Modifier" class="btn-task"> -->
+      </form>
     </div>
   </section>
 

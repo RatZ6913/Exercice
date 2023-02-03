@@ -153,18 +153,6 @@ input[type=submit]:hover {
   border: 1px solid black;
 }
 
-#task {
-  width: 30vw;
-}
-
-#btn-tasks {
-  display: flex;
-}
-
-#btn-tasks input {
-  align-items: center;
-  margin: 0.5rem;
-}
 
 #tasks {
   display: flex;
@@ -174,3 +162,23 @@ input[type=submit]:hover {
   width: 60%;
   align-items: center;
 }
+
+#form-task {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+#form-task input {
+  align-items: center;
+  margin: 0.5rem;
+}
+
+input[type=text] {
+  width: 50%;
+}
+
+.btn-task {
+  display: flex;
+}
+
