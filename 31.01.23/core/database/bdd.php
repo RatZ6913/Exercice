@@ -45,7 +45,7 @@ $addTasks = $pdo->prepare('INSERT INTO tasks(text, idUsers) VALUES (:text, :idUs
 $addTasks->bindParam('text', $textTask);
 $addTasks->bindParam('idUsers', $idUsers);
 
-$getTasks = $pdo->prepare("SELECT * FROM tasks WHERE idUsers = :idUsers");
+$getTasks = $pdo->prepare("SELECT * FROM tasks WHERE idUsers = :idUsers ORDER BY idTasks DESC");
 $getTasks->bindParam('idUsers', $idUsers);
 
 

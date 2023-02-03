@@ -19,12 +19,9 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
   $_SESSION['imageProfil'] = $showImage['file_name'] ?? '';
 }
 
-var_dump($_SESSION);
-
 ?>
 
 <title><?= $title  = 'Page de connexion'; ?></title>
-
 <?php include_once __DIR__ . './public/common/header.php'; ?>
 
 <body>
@@ -43,23 +40,33 @@ var_dump($_SESSION);
     </div>
     <div id="tasks">
       <?php require_once __DIR__ . './core/database/tasksDB.php'; ?>
-      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="form-task">
+      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="form-task">
         <input type="text" name="task" id="task">
         <input type="submit" name="add-tasks" value="Ajouter" class="btn-task">
-        <!-- <input type="submit" name="edit-tasks" value="Modifier" class="btn-task"> -->
       </form>
     </div>
   </section>
 
   <section id="task-lists">
     <?php
-    foreach($showTasks as $key => $value){
-      var_dump($showTasks);
+    $getTasks->execute();
+    $showTasks = $getTasks->fetchAll();
+    $count = 1;
+    foreach ($showTasks as $key) {
+    ?>
+      <div class="taskAdded">
+        <?= $count++; ?>
+        <input type="text" class="text-tasks" value="<?= $key['text']; ?>" disabled>
+        <div>
+          <form action="" class="form-task">
+            <input type="submit" value="Modifier" name="edit-task">
+            <input type="submit" value="Supprimer" name="del-task">
+          </form>
+        </div>
+      </div>
+    <?php
     }
     ?>
-    <div>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
   </section>
 
 </body>
