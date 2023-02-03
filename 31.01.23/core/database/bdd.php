@@ -40,4 +40,13 @@ $updateProfil->bindParam('updatePass', $updatePass);
 $updateProfil->bindParam('updateEmail', $updateEmail);
 $updateProfil->bindParam('idUsers', $idUsers);
 
+// Partie : ToDo List
+$addTasks = $pdo->prepare('INSERT INTO tasks(text, idUsers) VALUES (:text, :idUsers)');
+$addTasks->bindParam('text', $textTask);
+$addTasks->bindParam('idUsers', $idUsers);
+
+$getTasks = $pdo->prepare("SELECT * FROM tasks WHERE idUsers = :idUsers");
+$getTasks->bindParam('idUsers', $idUsers);
+
+
 

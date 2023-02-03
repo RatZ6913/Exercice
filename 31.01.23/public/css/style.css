@@ -182,3 +182,11 @@ input[type=text] {
   display: flex;
 }
 
+#task-lists {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  background-color: wheat;
+  margin: 0.5rem auto;
+}
+

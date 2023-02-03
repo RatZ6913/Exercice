@@ -42,11 +42,23 @@ var_dump($_SESSION);
       <h4>Listes de Tâches</h4>
     </div>
     <div id="tasks">
+      <?php require_once __DIR__ . './core/database/tasksDB.php'; ?>
       <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="form-task">
         <input type="text" name="task" id="task">
         <input type="submit" name="add-tasks" value="Ajouter" class="btn-task">
         <!-- <input type="submit" name="edit-tasks" value="Modifier" class="btn-task"> -->
       </form>
+    </div>
+  </section>
+
+  <section id="task-lists">
+    <?php
+    foreach($showTasks as $key => $value){
+      var_dump($showTasks);
+    }
+    ?>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
     </div>
   </section>
 
