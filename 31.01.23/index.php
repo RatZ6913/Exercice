@@ -53,6 +53,13 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
       if($_POST['id='. $key['idtasks']] ?? '' === $key['idtasks']){
         $edit = "Valider";
         $disabled = "";
+
+        if($_POST['Valider']){
+          $textTask = $key['text'] ?? '';
+          $idTasks = $_POST['id='. $key['idtasks']];
+          $editTasks->execute();
+        }
+
       } else {
         $edit = "Modifier";
         $disabled = 'disabled';
@@ -69,6 +76,8 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
         </div>
       </div>
     <?php
+    var_dump($key['text']);
+    var_dump($_POST);
     }
     ?>
   </section>

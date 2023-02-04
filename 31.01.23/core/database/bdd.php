@@ -49,4 +49,8 @@ $getTasks = $pdo->prepare("SELECT * FROM tasks WHERE idUsers = :idUsers ORDER BY
 $getTasks->bindParam('idUsers', $idUsers);
 
 
+$editTasks = $pdo->prepare("UPDATE tasks SET text = :textTask WHERE idtasks = :idTasks");
+$editTasks->bindParam('textTask', $textTask);
+$editTasks->bindParam('idTasks', $idTasks);
+
 
