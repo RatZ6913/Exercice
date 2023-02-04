@@ -50,34 +50,49 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
   <section id="task-lists">
     <?php
     foreach ($showTasks as $key) {
-      if($_POST['id='. $key['idtasks']] ?? '' === $key['idtasks']){
+      if ($_POST['id=' . $key['idtasks']] ?? '' === $key['idtasks']) {
         $edit = "Valider";
         $disabled = "";
 
-        if($_POST['Valider']){
-          $textTask = $key['text'] ?? '';
-          $idTasks = $_POST['id='. $key['idtasks']];
-          $editTasks->execute();
-        }
+        try {
 
+
+          $editText = $key['text']?? '';
+          // $idTasks = $key['idtasks'];
+          // var_dump($idTasks);
+          // var_dump($editText);
+          // $editTasks->execute();
+          // var_dump($editText);
+        } catch (Exception $e) {
+          throw new Exception($e->getMessage());
+        }
       } else {
         $edit = "Modifier";
         $disabled = 'disabled';
       }
+
     ?>
       <div class="taskAdded">
         <?= $count++; ?>
-          <input type="text" class="text-tasks" value="<?= $key['text']; ?>" name="<?= $key['idtasks'] ?? ''; ?>" <?= $disabled ?? ''; ?>>
+        <form action="" method="POST">
+        <input type="text" class="text-tasks" value="<?= $key['text']; ?>" name="<?= $key['idtasks'] ?? ''; ?>" <?= $disabled ?? ''; ?>>
+        </form>
         <div>
           <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form-task" method="POST">
-            <input type="submit" value="<?= $edit ?? '';?>" name="id=<?= $key['idtasks']; ?>">
+            <input type="submit" value="<?= $edit ?? ''; ?>" name="id=<?= $key['idtasks']; ?>">
             <input type="submit" value="Supprimer" name="del-task">
           </form>
         </div>
       </div>
     <?php
-    var_dump($key['text']);
-    var_dump($_POST);
+          $editText = $key['text'] ?? '';
+          $idTasks = $key['idtasks'];
+
+          $editTasks->execute();
+    
+          var_dump($editText);
+          // var_dump($key['text']);
+          // var_dump($_POST);
     }
     ?>
   </section>

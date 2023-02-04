@@ -50,7 +50,7 @@ $getTasks->bindParam('idUsers', $idUsers);
 
 
 $editTasks = $pdo->prepare("UPDATE tasks SET text = :textTask WHERE idtasks = :idTasks");
-$editTasks->bindParam('textTask', $textTask);
+$editTasks->bindParam('textTask', $editText);
 $editTasks->bindParam('idTasks', $idTasks);
 
 
