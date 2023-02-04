@@ -49,17 +49,21 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
 
   <section id="task-lists">
     <?php
-    $getTasks->execute();
-    $showTasks = $getTasks->fetchAll();
-    $count = 1;
     foreach ($showTasks as $key) {
+      if($_POST['id='. $key['idtasks']] ?? '' === $key['idtasks']){
+        $edit = "Valider";
+        $disabled = "";
+      } else {
+        $edit = "Modifier";
+        $disabled = 'disabled';
+      }
     ?>
       <div class="taskAdded">
         <?= $count++; ?>
-        <input type="text" class="text-tasks" value="<?= $key['text']; ?>" disabled>
+          <input type="text" class="text-tasks" value="<?= $key['text']; ?>" name="<?= $key['idtasks'] ?? ''; ?>" <?= $disabled ?? ''; ?>>
         <div>
-          <form action="" class="form-task">
-            <input type="submit" value="Modifier" name="edit-task">
+          <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form-task" method="POST">
+            <input type="submit" value="<?= $edit ?? '';?>" name="id=<?= $key['idtasks']; ?>">
             <input type="submit" value="Supprimer" name="del-task">
           </form>
         </div>
@@ -68,5 +72,4 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
     }
     ?>
   </section>
-
 </body>

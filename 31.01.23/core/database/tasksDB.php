@@ -2,6 +2,9 @@
 
 require_once __DIR__ . './bdd.php';
 
+$getTasks->execute();
+$showTasks = $getTasks->fetchAll();
+$count = 1;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -11,10 +14,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $addTasks->execute();
     }
   }
-
-  if(!empty($_POST['edit-task'])){
-    
-  }
-
-
 }
+
