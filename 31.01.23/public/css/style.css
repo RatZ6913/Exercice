@@ -62,26 +62,26 @@ form div {
   margin: 1rem;
 }
 
-input[type=submit] {
+input[type="submit"] {
   margin: auto;
   margin-bottom: 0.5rem;
   color: brown;
   background-color: white;
   border: none;
-  padding:  0.2rem  0.5rem;
+  padding: 0.2rem 0.5rem;
 }
 
-input[type=submit]:hover {
-  box-shadow: 0px 0px 1px 1px  white;
+input[type="submit"]:hover {
+  box-shadow: 0px 0px 1px 1px white;
   animation: submit 0.5s infinite ease-in-out;
 }
 
-@keyframes submit { 
+@keyframes submit {
   from {
-  box-shadow: 0px 0px 1px 1px  white;
+    box-shadow: 0px 0px 1px 1px white;
   }
   to {
-  box-shadow: 1px 1px 1px 1px  white;
+    box-shadow: 1px 1px 1px 1px white;
   }
 }
 
@@ -180,7 +180,7 @@ h4 {
   margin: 0.5rem;
 }
 
-input[type=text] {
+input[type="text"] {
   width: 50%;
 }
 
@@ -220,5 +220,13 @@ input[type=text] {
 .text-tasks {
   color: #0e3774 !important;
   background-color: whitesmoke !important;
+  width: 25vw !important;
+}
+
+.count {
+  display: flex;
+  position: absolute;
+  margin: auto;
+  margin-left: -15px;
 }
 

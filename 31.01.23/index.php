@@ -60,20 +60,19 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
         $idTasks = $key['idtasks'];
         $updateText = $editTasks->execute();
 
-        if(!empty($_POST[$idUsers])){
+        if (!empty($_POST[$idUsers])) {
           header('location: ./');
         }
 
-        if(isset($_POST['Supprimer'])){
-          var_dump($_POST);
+        if (!empty($_POST['del-task'])) {
+          $delTasks->execute();
         }
-
       }
 
     ?>
       <div class="taskAdded">
-        <?= $count++; ?>
         <div>
+          <h4 class="count"><?= $count++; ?></h4>
           <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form-task" method="POST">
             <input type="text" class="text-tasks" value="<?= $key['text']; ?>" name="<?= $_POST['text'] = $idUsers; ?>" <?= $disabled ?? ''; ?>>
             <input type="submit" value="<?= $edit ?? ''; ?>" name="id=<?= $key['idtasks']; ?>">
@@ -82,7 +81,7 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
         </div>
       </div>
     <?php
-          // var_dump($_POST['del-task']);
+      // var_dump($_POST['del-task']);
 
     }
     ?>

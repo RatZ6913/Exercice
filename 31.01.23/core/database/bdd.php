@@ -53,5 +53,5 @@ $editTasks = $pdo->prepare("UPDATE tasks SET text = :textTask WHERE idtasks = :i
 $editTasks->bindParam('textTask', $editText);
 $editTasks->bindParam('idTasks', $idTasks);
 
-$editTasks = $pdo->prepare("DELETE tasks FROM tasks WHERE idtasks = :idTasks");
-$editTasks->bindParam('idTasks', $idDelTask);
+$delTasks = $pdo->prepare("DELETE tasks FROM tasks WHERE idtasks = :idTasks");
+$delTasks->bindParam('idTasks', $idTasks);
