@@ -30,7 +30,7 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
   </div>
 
   <section>
-    <h3>Bravo <span class="pseudo"><?= $pseudoSess; ?></span> ! Vous savez utilisez un formulaire.</h3>
+    <h3>Bravo <span class="pseudo"><?= $pseudoSess; ?></span> ! Vous savez utiliser un formulaire.</h3>
     <h3>Votre email est : <span class="email"><?= $emailSess; ?></span> !</h3>
   </section>
 
@@ -50,49 +50,33 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
   <section id="task-lists">
     <?php
     foreach ($showTasks as $key) {
-      if ($_POST['id=' . $key['idtasks']] ?? '' === $key['idtasks']) {
+      $edit = "Modifier";
+      $disabled = "disabled";
+      if (!empty($_POST['id=' . $key['idtasks']] ?? '' === $key['idtasks'])) {
         $edit = "Valider";
         $disabled = "";
 
-        try {
+        $editText = $_POST[$idUsers] ?? $key['text'];
+        $idTasks = $key['idtasks'];
+        $updateText = $editTasks->execute();
 
-
-          $editText = $key['text']?? '';
-          // $idTasks = $key['idtasks'];
-          // var_dump($idTasks);
-          // var_dump($editText);
-          // $editTasks->execute();
-          // var_dump($editText);
-        } catch (Exception $e) {
-          throw new Exception($e->getMessage());
+        if(!empty($_POST[$idUsers])){
+          header('location: ./');
         }
-      } else {
-        $edit = "Modifier";
-        $disabled = 'disabled';
       }
 
     ?>
       <div class="taskAdded">
         <?= $count++; ?>
-        <form action="" method="POST">
-        <input type="text" class="text-tasks" value="<?= $key['text']; ?>" name="<?= $key['idtasks'] ?? ''; ?>" <?= $disabled ?? ''; ?>>
-        </form>
         <div>
           <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form-task" method="POST">
+            <input type="text" class="text-tasks" value="<?= $key['text']; ?>" name="<?= $_POST['text'] = $idUsers; ?>" <?= $disabled ?? ''; ?>>
             <input type="submit" value="<?= $edit ?? ''; ?>" name="id=<?= $key['idtasks']; ?>">
             <input type="submit" value="Supprimer" name="del-task">
           </form>
         </div>
       </div>
     <?php
-          $editText = $key['text'] ?? '';
-          $idTasks = $key['idtasks'];
-
-          $editTasks->execute();
-    
-          var_dump($editText);
-          // var_dump($key['text']);
-          // var_dump($_POST);
     }
     ?>
   </section>
