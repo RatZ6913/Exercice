@@ -63,6 +63,11 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
         if(!empty($_POST[$idUsers])){
           header('location: ./');
         }
+
+        if(isset($_POST['Supprimer'])){
+          var_dump($_POST);
+        }
+
       }
 
     ?>
@@ -77,6 +82,8 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
         </div>
       </div>
     <?php
+          // var_dump($_POST['del-task']);
+
     }
     ?>
   </section>
