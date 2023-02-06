@@ -63,12 +63,7 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
         if (!empty($_POST[$idUsers])) {
           header('location: ./');
         }
-
-        if (!empty($_POST['del-task'])) {
-          $delTasks->execute();
-        }
       }
-
     ?>
       <div class="taskAdded">
         <div>
@@ -76,13 +71,18 @@ if (empty($_SESSION['pseudo']) && empty($_SESSION['email']) && empty($_SESSION['
           <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form-task" method="POST">
             <input type="text" class="text-tasks" value="<?= $key['text']; ?>" name="<?= $_POST['text'] = $idUsers; ?>" <?= $disabled ?? ''; ?>>
             <input type="submit" value="<?= $edit ?? ''; ?>" name="id=<?= $key['idtasks']; ?>">
-            <input type="submit" value="Supprimer" name="del-task">
+            <input type="submit" value="Supprimer" name="id=<?= $key['idtasks']; ?>">
           </form>
         </div>
       </div>
     <?php
-      // var_dump($_POST['del-task']);
-
+      if (!empty($_POST['id=' . $key['idtasks']] ?? '' === $key['idtasks'])) { 
+        
+        if ($_POST['id=' . $key['idtasks']] == 'Supprimer') {
+          $delTasks->execute();
+          header('location: ./');
+        }
+      }
     }
     ?>
   </section>
